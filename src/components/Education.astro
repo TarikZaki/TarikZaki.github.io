@@ -1,0 +1,49 @@
+---
+import { profile } from "../data/profile";
+import SectionHeading from "./SectionHeading.astro";
+
+const hasCertifications = profile.certifications.length > 0;
+const hasLanguages = profile.languages.length > 0;
+---
+
+<section class="reveal mx-auto max-w-4xl px-6 py-16">
+  <SectionHeading
+    id="education"
+    title={hasCertifications ? "Education & Certifications" : "Education & Languages"}
+  />
+  <div class="max-w-2xl space-y-6">
+    <div>
+      <h3 class="font-display text-lg tracking-tight">
+        {profile.education.degree}
+      </h3>
+      <p class="mt-1 text-sm text-soft">
+        {profile.education.school} · {profile.education.year} · {profile.education.grade}
+      </p>
+    </div>
+    {
+      hasCertifications && (
+        <ul class="space-y-2 text-sm text-soft">
+          {profile.certifications.map((cert) => (
+            <li>
+              <span class="text-ink">{cert.name}</span> — {cert.issuer}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+    {
+      hasLanguages && (
+        <div>
+          <h4 class="text-sm font-medium text-accent-text">Languages</h4>
+          <ul class="mt-2 space-y-1 text-sm text-soft">
+            {profile.languages.map((lang) => (
+              <li>
+                <span class="text-ink">{lang.name}</span> — {lang.level}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </div>
+</section>

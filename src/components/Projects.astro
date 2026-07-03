@@ -1,0 +1,42 @@
+---
+import { profile } from "../data/profile";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section class="reveal mx-auto max-w-4xl px-6 py-16">
+  <SectionHeading id="projects" title="Projects" />
+  <ul class="max-w-2xl divide-y divide-line border-y border-line">
+    {
+      profile.projects.map((project) => (
+        <li class="py-6">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <h3 class="font-display text-lg tracking-tight">
+              {project.link ? (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener"
+                  class="transition-colors hover:text-accent"
+                >
+                  {project.name}
+                  <span aria-hidden="true"> ↗</span>
+                </a>
+              ) : (
+                project.name
+              )}
+            </h3>
+            {project.note && (
+              <span class="text-xs text-soft">{project.note}</span>
+            )}
+          </div>
+          <p class="mt-2 max-w-xl text-sm leading-relaxed text-soft">
+            {project.description}
+          </p>
+          <p class="mt-3 text-xs text-soft">
+            {project.tags.join(" · ")}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
