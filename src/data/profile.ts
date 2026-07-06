@@ -8,9 +8,10 @@ export interface Experience {
 
 export interface Project {
   name: string;
-  description: string;
+  highlights: string[];
   tags: string[];
-  link?: string;
+  github?: string;
+  demo?: string;
   note?: string;
 }
 
@@ -29,6 +30,7 @@ export const profile = {
   links: {
     github: "https://github.com/TarikZaki",
     linkedin: "https://www.linkedin.com/in/tarek-zaki/",
+    website: "https://tarikzaki.github.io",
   },
   experience: [
     {
@@ -48,18 +50,23 @@ export const profile = {
   ] satisfies Experience[],
   projects: [
     {
-      name: "E-Commerce Front-End",
-      description:
-        "Personal front-end e-commerce application built with Angular, covering product listing, cart, and checkout flows. Unit tests with Jest cover core components and logic.",
-      tags: ["Angular", "TypeScript", "Jest"],
-      note: "GitHub link coming soon",
-    },
-    {
-      name: "GapMap Portal & PayStation",
-      description:
-        "Enterprise Angular applications within an Nx monorepo — portal features including Exhibitors, partition maps, and a new kiosk-machine app. Professional work at GAMP.",
-      tags: ["Angular", "Nx", "RxJS", "Signals"],
-      note: "Proprietary",
+      name: "Angular E-Commerce (Nx Monorepo)",
+      highlights: [
+        "Built a full-featured e-commerce app with Angular 20 (standalone components, Signals, lazy-loaded routes, @if/@for control flow), structured as an Nx monorepo across 16 feature and shared libraries.",
+        "Implemented authentication (JWT, functional route guards), product browsing with search/sort/pagination/filters synced to URL query params, cart, checkout, and order history — integrated with a REST API via typed services and HTTP interceptors.",
+        "Reached 84% statement coverage with Jest across 38 test suites and 93 tests, covering components, services, guards, validators, and interceptors.",
+      ],
+      tags: [
+        "Angular 20",
+        "Nx",
+        "Signals",
+        "RxJS",
+        "Jest",
+        "TypeScript",
+        "SCSS",
+      ],
+      demo: "https://tarikzaki.github.io/angular-ecommerce/",
+      github: "https://github.com/TarikZaki/angular-ecommerce",
     },
   ] satisfies Project[],
   skills: [
