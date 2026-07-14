@@ -3,20 +3,24 @@ import { profile } from "../data/profile";
 import SectionHeading from "./SectionHeading.astro";
 ---
 
-<section class="reveal mx-auto max-w-4xl px-6 py-16">
-  <SectionHeading id="skills" title="Skills" />
-  <dl class="max-w-2xl divide-y divide-line border-y border-line">
+<section id="skills" class="reveal scroll-mt-8 py-16">
+  <SectionHeading index="04" title="Skills" />
+  <div class="grid gap-6 sm:grid-cols-2">
     {
       profile.skills.map((skill) => (
-        <div class="grid gap-1 py-4 sm:grid-cols-[8rem_1fr] sm:gap-6">
-          <dt class="text-sm font-medium tracking-wide text-accent-text">
+        <div class="glass rounded-3xl p-6">
+          <h3 class="text-sm font-semibold tracking-wide text-accent-text uppercase">
             {skill.group}
-          </dt>
-          <dd class="text-sm leading-relaxed text-soft">
-            {skill.items.join(" · ")}
-          </dd>
+          </h3>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {skill.items.map((item) => (
+              <li class="rounded-full border border-line bg-accent/5 px-3 py-1.5 text-sm text-soft transition-colors hover:border-accent/40 hover:text-ink">
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       ))
     }
-  </dl>
+  </div>
 </section>

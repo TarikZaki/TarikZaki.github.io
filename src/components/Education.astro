@@ -6,39 +6,51 @@ const hasCertifications = profile.certifications.length > 0;
 const hasLanguages = profile.languages.length > 0;
 ---
 
-<section class="reveal mx-auto max-w-4xl px-6 py-16">
+<section id="education" class="reveal scroll-mt-8 py-16">
   <SectionHeading
-    id="education"
+    index="05"
     title={hasCertifications ? "Education & Certifications" : "Education & Languages"}
   />
-  <div class="max-w-2xl space-y-6">
-    <div>
-      <h3 class="font-display text-lg tracking-tight">
+  <div class="grid gap-6 sm:grid-cols-2">
+    <div class="glass rounded-3xl p-6 sm:p-7">
+      <h3 class="font-display text-lg font-semibold tracking-tight">
         {profile.education.degree}
       </h3>
-      <p class="mt-1 text-sm text-soft">
-        {profile.education.school} · {profile.education.year} · {profile.education.grade}
+      <p class="mt-2 text-sm leading-relaxed text-soft">
+        {profile.education.school}
       </p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="rounded-full border border-line px-3 py-1 text-xs text-soft">
+          {profile.education.year}
+        </span>
+        <span class="rounded-full border border-line bg-accent/5 px-3 py-1 text-xs text-accent-text">
+          {profile.education.grade}
+        </span>
+      </div>
+      {
+        hasCertifications && (
+          <ul class="mt-5 space-y-2 border-t border-line pt-4 text-sm text-soft">
+            {profile.certifications.map((cert) => (
+              <li>
+                <span class="text-ink">{cert.name}</span> — {cert.issuer}
+              </li>
+            ))}
+          </ul>
+        )
+      }
     </div>
-    {
-      hasCertifications && (
-        <ul class="space-y-2 text-sm text-soft">
-          {profile.certifications.map((cert) => (
-            <li>
-              <span class="text-ink">{cert.name}</span> — {cert.issuer}
-            </li>
-          ))}
-        </ul>
-      )
-    }
+
     {
       hasLanguages && (
-        <div>
-          <h4 class="text-sm font-medium text-accent-text">Languages</h4>
-          <ul class="mt-2 space-y-1 text-sm text-soft">
+        <div class="glass rounded-3xl p-6 sm:p-7">
+          <h3 class="text-sm font-semibold tracking-wide text-accent-text uppercase">
+            Languages
+          </h3>
+          <ul class="mt-4 space-y-3">
             {profile.languages.map((lang) => (
-              <li>
-                <span class="text-ink">{lang.name}</span> — {lang.level}
+              <li class="flex items-center justify-between gap-4 border-b border-line pb-3 last:border-0 last:pb-0">
+                <span class="font-medium text-ink">{lang.name}</span>
+                <span class="text-sm text-soft">{lang.level}</span>
               </li>
             ))}
           </ul>

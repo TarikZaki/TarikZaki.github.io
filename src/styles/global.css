@@ -1,39 +1,49 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
-@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/space-grotesk";
 @import "lenis/dist/lenis.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg: #faf7f2;
+  --bg: #f4f5fb;
   --bg-raised: #ffffff;
-  --ink: #1a1a1a;
-  --muted: #6b6459;
-  --line: #e5dfd4;
-  --accent: #a0764b;
-  --accent-text: #8f6440;
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --ink: #0d0e1a;
+  --muted: #565b78;
+  --line: #e3e5f0;
+  --accent: #6d28d9;
+  --accent-2: #0891b2;
+  --accent-text: #6d28d9;
+  --glow-1: rgba(109, 40, 217, 0.18);
+  --glow-2: rgba(8, 145, 178, 0.16);
 }
 
 .dark {
-  --bg: #14120f;
-  --bg-raised: #1c1915;
-  --ink: #ede8e0;
-  --muted: #9c9488;
-  --line: #2a261f;
-  --accent: #c49a6c;
-  --accent-text: #c49a6c;
+  --bg: #06060c;
+  --bg-raised: rgba(255, 255, 255, 0.028);
+  --bg-glass: rgba(16, 16, 28, 0.55);
+  --ink: #e9eaf6;
+  --muted: #9698b5;
+  --line: rgba(255, 255, 255, 0.09);
+  --accent: #a78bfa;
+  --accent-2: #22d3ee;
+  --accent-text: #c4b5fd;
+  --glow-1: rgba(124, 92, 255, 0.28);
+  --glow-2: rgba(34, 211, 238, 0.2);
 }
 
 @theme inline {
   --color-paper: var(--bg);
   --color-raised: var(--bg-raised);
+  --color-glass: var(--bg-glass);
   --color-ink: var(--ink);
   --color-soft: var(--muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
   --color-accent-text: var(--accent-text);
-  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-display: "Space Grotesk Variable", system-ui, sans-serif;
   --font-body: "Inter Variable", system-ui, sans-serif;
 }
 
@@ -43,15 +53,54 @@ html {
   font-family: var(--font-body);
 }
 
+/* Ambient neon glow behind everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 15% -5%, var(--glow-1), transparent 60%),
+    radial-gradient(50rem 40rem at 100% 20%, var(--glow-2), transparent 55%),
+    radial-gradient(40rem 30rem at 50% 120%, var(--glow-1), transparent 60%);
+}
+
 ::selection {
   background-color: var(--accent);
-  color: var(--bg);
+  color: #06060c;
 }
 
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.text-gradient {
+  background-image: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background-color: var(--bg-glass);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.glow-ring {
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 0 40px -12px var(--glow-1);
+}
+
+/* Thin custom scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -64,18 +113,20 @@ button:focus-visible {
   }
 
   body,
-  header {
+  header,
+  aside {
     transition:
       background-color 0.3s ease,
-      color 0.3s ease;
+      color 0.3s ease,
+      border-color 0.3s ease;
   }
 
   .reveal {
     opacity: 0;
-    transform: translateY(1rem);
+    transform: translateY(1.25rem);
     transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reveal.revealed {

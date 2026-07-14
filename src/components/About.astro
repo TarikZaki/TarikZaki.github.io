@@ -3,9 +3,11 @@ import { profile } from "../data/profile";
 import SectionHeading from "./SectionHeading.astro";
 ---
 
-<section class="reveal mx-auto max-w-4xl px-6 py-16">
-  <SectionHeading id="about" title="About" />
-  <p class="max-w-2xl leading-relaxed text-soft">
-    {profile.about}
-  </p>
+<section id="about" class="reveal scroll-mt-8 py-16">
+  <SectionHeading index="01" title="About" />
+  <div class="glass rounded-3xl p-6 sm:p-8">
+    <p class="max-w-2xl text-lg leading-relaxed text-soft">
+      {profile.about}
+    </p>
+  </div>
 </section>

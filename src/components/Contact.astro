@@ -3,23 +3,23 @@ import { profile } from "../data/profile";
 import SectionHeading from "./SectionHeading.astro";
 ---
 
-<section class="reveal mx-auto max-w-4xl px-6 py-16">
-  <SectionHeading id="contact" title="Contact" />
-  <div class="max-w-2xl">
-    <p class="leading-relaxed text-soft">
+<section id="contact" class="reveal scroll-mt-8 py-16">
+  <SectionHeading index="06" title="Contact" />
+  <div class="glass glow-ring overflow-hidden rounded-3xl p-8 sm:p-10">
+    <p class="max-w-xl leading-relaxed text-soft">
       Open to interesting problems and good conversations. The fastest way to
       reach me:
     </p>
     <a
       href={`mailto:${profile.email}`}
-      class="mt-5 inline-block font-display text-2xl tracking-tight underline decoration-line underline-offset-8 transition-colors hover:decoration-accent sm:text-3xl"
+      class="mt-5 inline-block font-display text-2xl font-semibold tracking-tight text-gradient transition-opacity hover:opacity-80 sm:text-4xl"
     >
       {profile.email}
     </a>
-    <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-soft">
+    <div class="mt-8 flex flex-wrap gap-3 text-sm">
       <a
         href={`tel:${profile.phoneHref}`}
-        class="transition-colors hover:text-ink"
+        class="rounded-full border border-line px-4 py-2 text-soft transition-colors hover:border-accent/40 hover:text-ink"
       >
         {profile.phone}
       </a>
@@ -27,7 +27,7 @@ import SectionHeading from "./SectionHeading.astro";
         href={profile.links.github}
         target="_blank"
         rel="noopener"
-        class="transition-colors hover:text-ink"
+        class="rounded-full border border-line px-4 py-2 text-soft transition-colors hover:border-accent/40 hover:text-ink"
       >
         GitHub
       </a>
@@ -35,7 +35,7 @@ import SectionHeading from "./SectionHeading.astro";
         href={profile.links.linkedin}
         target="_blank"
         rel="noopener"
-        class="transition-colors hover:text-ink"
+        class="rounded-full border border-line px-4 py-2 text-soft transition-colors hover:border-accent/40 hover:text-ink"
       >
         LinkedIn
       </a>
@@ -43,7 +43,7 @@ import SectionHeading from "./SectionHeading.astro";
         href={profile.links.website}
         target="_blank"
         rel="noopener"
-        class="transition-colors hover:text-ink"
+        class="rounded-full border border-line px-4 py-2 text-soft transition-colors hover:border-accent/40 hover:text-ink"
       >
         Website
       </a>
@@ -51,7 +51,7 @@ import SectionHeading from "./SectionHeading.astro";
   </div>
 </section>
 
-<footer class="mx-auto max-w-4xl border-t border-line px-6 py-8">
+<footer class="border-t border-line py-8">
   <p class="text-xs text-soft">
     © {new Date().getFullYear()} {profile.name} · Built with Astro
   </p>

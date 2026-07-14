@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import Nav from "../components/Nav.astro";
+import Sidebar from "../components/Sidebar.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Experience from "../components/Experience.astro";
@@ -11,14 +11,16 @@ import Contact from "../components/Contact.astro";
 ---
 
 <Base>
-  <Nav />
-  <main>
-    <Hero />
-    <About />
-    <Experience />
-    <Projects />
-    <Skills />
-    <Education />
-    <Contact />
-  </main>
+  <div class="mx-auto flex w-full max-w-7xl flex-col lg:flex-row">
+    <Sidebar />
+    <main class="min-w-0 flex-1 px-6 sm:px-10 lg:px-16">
+      <Hero />
+      <About />
+      <Experience />
+      <Projects />
+      <Skills />
+      <Education />
+      <Contact />
+    </main>
+  </div>
 </Base>

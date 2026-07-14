@@ -9,13 +9,13 @@ interface Props {
 }
 
 const {
-  title = `${profile.name} — Junior Front-End Developer | Angular · TypeScript`,
-  description = `Junior Front-End Developer specializing in enterprise Angular applications. Experienced with Angular Signals, RxJS, Nx monorepos, and Jest. Based in Egypt.`,
+  title = `${profile.name} — Front-End Developer | Angular · TypeScript`,
+  description = `Front-End Developer specializing in enterprise Angular SPAs. Production experience with Reactive Forms, RxJS, state management, Signals, and Nx monorepos. Based in Alexandria, Egypt. Open to remote opportunities.`,
 } = Astro.props;
 
 const siteUrl = Astro.site!.toString().replace(/\/$/, "");
 const ogImage = new URL(profileImg.src, Astro.site);
-const ogImageAlt = `${profile.name} — Junior Front-End Developer`;
+const ogImageAlt = `${profile.name} — Front-End Developer`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -33,8 +33,22 @@ const jsonLd = {
     "JavaScript",
     "RxJS",
     "Angular Signals",
+    "Reactive Forms",
+    "JWT Authentication",
+    "HTTP Interceptors",
+    "State Management",
+    "Lazy Loading",
+    "Angular Control Flow",
+    "Angular Material",
     "Jest",
+    "Unit Testing",
     "Nx Monorepo",
+    "REST API Integration",
+    "SPA",
+    "Responsive Design",
+    "Agile",
+    "Scrum",
+    "Git",
     "HTML5",
     "CSS3",
     "SCSS",
@@ -45,6 +59,7 @@ const jsonLd = {
   },
   address: {
     "@type": "PostalAddress",
+    addressLocality: "Alexandria",
     addressCountry: "EG",
   },
 };
@@ -57,7 +72,7 @@ const jsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="front-end developer, Angular, TypeScript, JavaScript, RxJS, Angular Signals, Nx monorepo, Jest, Egypt, remote developer, software engineer" />
+    <meta name="keywords" content="front-end developer, Angular developer, TypeScript, JavaScript, SPA, RxJS, Angular Signals, Reactive Forms, JWT authentication, HTTP interceptors, state management, lazy loading, Angular control flow, Angular Material, Nx monorepo, Jest, unit testing, REST API integration, responsive design, Agile, Scrum, Git, remote developer, Alexandria Egypt, software engineer" />
     <meta name="author" content={profile.name} />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="generator" content={Astro.generator} />
@@ -118,6 +133,30 @@ const jsonLd = {
         { threshold: 0.1 },
       );
       document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+    <script>
+      // Scroll-spy: highlight the sidebar link for the section in view
+      const navLinks = Array.from(
+        document.querySelectorAll<HTMLAnchorElement>("[data-nav]"),
+      );
+      const setActive = (id: string) => {
+        for (const link of navLinks) {
+          link.dataset.active = String(
+            link.getAttribute("href") === `#${id}`,
+          );
+        }
+      };
+      const spy = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          }
+        },
+        { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+      );
+      document
+        .querySelectorAll("main section[id]")
+        .forEach((el) => spy.observe(el));
     </script>
   </body>
 </html>

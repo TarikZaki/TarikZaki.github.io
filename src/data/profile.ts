@@ -17,15 +17,15 @@ export interface Project {
 
 export const profile = {
   name: "Tarek Zaki",
-  title: "Junior Front-End Developer (Angular)",
+  title: "Front-End Developer (Angular)",
   tagline:
-    "I build and maintain enterprise Angular applications — from Angular Signals and RxJS to Nx monorepos and Jest — with a focus on maintainable code and thoughtful architecture.",
+    "I build and maintain enterprise Angular applications — from Reactive Forms and RxJS to Nx monorepos and Jest — with a focus on maintainable code and thoughtful architecture.",
   about:
-    "Junior Front-End Developer with hands-on experience building and maintaining enterprise Angular applications in production. Experienced with Angular Signals, RxJS, Nx monorepos, and Jest, within Agile/Scrum workflows. Focused on writing maintainable code and improving application architecture through refactoring and code review.",
+    "Front-End Developer based in Alexandria, Egypt, with hands-on experience building and maintaining enterprise Angular SPAs in production. Experienced with Reactive Forms, RxJS, state management, component-level Signals, control flow (@if/@for), and Nx monorepos, with unit testing using Jest within Agile/Scrum workflows. Focused on writing maintainable code, responsive design, and improving application architecture through refactoring and code review.",
   email: "zakitarek20@gmail.com",
   phone: "+20 121 277 1975",
   phoneHref: "+201212771975",
-  location: "Egypt",
+  location: "Alexandria, Egypt",
   cvPath: "/Tarek_Zaki_CV.pdf",
   links: {
     github: "https://github.com/TarikZaki",
@@ -35,14 +35,14 @@ export const profile = {
   experience: [
     {
       company: "GAMP",
-      role: "Junior Front-End Developer",
+      role: "Front-End Developer",
       period: "Oct 2025 — Present",
       location: "Poland · IT Services & Software Development · Remote",
       highlights: [
         "Delivered features and bug fixes across GapMap (Portal) and PayStation, a new kiosk-machine application added to the team's Nx Angular monorepo, working under senior review in an Agile/Scrum workflow with Jira.",
         "Built the Exhibitors feature end-to-end — a listing page with search and filters, a details page, and a reusable fullscreen Lightbox component now reused elsewhere in the portal.",
         "Diagnosed and fixed a state-management bug causing the partition map to get stuck in infinite loading when switching selling types, tracing it to an incorrect service-reset order.",
-        "Refactored existing components to use Signals and native control flow (@if/@for), and resolved responsive-design issues across multiple views to improve layout consistency across screen sizes.",
+        "Refactored existing components to use component-level Signals and native control flow (@if/@for), and resolved responsive-design issues across multiple views to improve layout consistency across screen sizes.",
         "Refactored route-access logic across Auth and Portal guards into a single config-driven service, replacing duplicated, hard-to-maintain checks.",
         "Wrote unit tests with Jest to validate component behavior and support the team's test coverage goals.",
       ],
@@ -60,6 +60,9 @@ export const profile = {
         "Angular 20",
         "Nx",
         "Signals",
+        "Reactive Forms",
+        "JWT",
+        "HTTP Interceptors",
         "RxJS",
         "Jest",
         "TypeScript",
@@ -87,24 +90,35 @@ export const profile = {
     {
       group: "Angular",
       items: [
-        "Signals",
+        "Reactive Forms",
         "RxJS",
         "Standalone Components",
         "Routing",
         "Route Guards",
+        "State Management",
+        "Signals",
+        "Control Flow (@if / @for)",
+      ],
+    },
+    {
+      group: "Personal Projects",
+      items: [
+        "JWT Authentication",
+        "HTTP Interceptors",
+        "Lazy Loading",
       ],
     },
     {
       group: "Testing",
-      items: ["Jest (unit testing)"],
+      items: ["Unit Testing (Jest)"],
     },
     {
       group: "Tools",
-      items: ["Nx Monorepo", "REST API integration", "Git", "GitHub", "GitLab"],
+      items: ["Nx Monorepo", "REST API Integration", "Git", "GitHub", "GitLab"],
     },
     {
       group: "Practices",
-      items: ["Agile/Scrum", "Jira", "Code Review"],
+      items: ["Agile/Scrum", "Remote Collaboration", "Responsive Design", "Jira", "Code Review"],
     },
   ],
   education: {
