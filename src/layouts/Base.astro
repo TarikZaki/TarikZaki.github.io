@@ -9,13 +9,13 @@ interface Props {
 }
 
 const {
-  title = `${profile.name} — Front-End Developer | Angular · TypeScript`,
-  description = `Front-End Developer specializing in enterprise Angular SPAs. Production experience with Reactive Forms, RxJS, state management, Signals, and Nx monorepos. Based in Alexandria, Egypt. Open to remote opportunities.`,
+  title = `${profile.name} — Angular Front-End Developer | TypeScript`,
+  description = `Angular Front-End Developer with production experience in enterprise B2B Angular apps — Signals, RxJS, Standalone Components, Nx monorepos, and Jest. Based in Alexandria, Egypt. Open to remote opportunities.`,
 } = Astro.props;
 
 const siteUrl = Astro.site!.toString().replace(/\/$/, "");
 const ogImage = new URL(profileImg.src, Astro.site);
-const ogImageAlt = `${profile.name} — Front-End Developer`;
+const ogImageAlt = `${profile.name} — Angular Front-End Developer`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -39,7 +39,9 @@ const jsonLd = {
     "State Management",
     "Lazy Loading",
     "Angular Control Flow",
+    "OnPush Change Detection",
     "Angular Material",
+    "Tailwind CSS",
     "Jest",
     "Unit Testing",
     "Nx Monorepo",
@@ -51,7 +53,6 @@ const jsonLd = {
     "Git",
     "HTML5",
     "CSS3",
-    "SCSS",
   ],
   alumniOf: {
     "@type": "EducationalOrganization",
@@ -72,7 +73,7 @@ const jsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="front-end developer, Angular developer, TypeScript, JavaScript, SPA, RxJS, Angular Signals, Reactive Forms, JWT authentication, HTTP interceptors, state management, lazy loading, Angular control flow, Angular Material, Nx monorepo, Jest, unit testing, REST API integration, responsive design, Agile, Scrum, Git, remote developer, Alexandria Egypt, software engineer" />
+    <meta name="keywords" content="Angular front-end developer, Angular developer, TypeScript, JavaScript, SPA, RxJS, Angular Signals, Standalone Components, Reactive Forms, JWT authentication, HTTP interceptors, OnPush change detection, lazy loading, Angular control flow, Angular Material, Tailwind CSS, Nx monorepo, Jest, unit testing, REST API integration, responsive design, Agile, Scrum, Git, remote developer, Alexandria Egypt, software engineer" />
     <meta name="author" content={profile.name} />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="generator" content={Astro.generator} />
